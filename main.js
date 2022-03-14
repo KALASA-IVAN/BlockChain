@@ -58,5 +58,5 @@ let i_coin = new Blockchain();
 i_coin.addBlock(new Block(1, "10/12/2022", { amount: 4 }));
 i_coin.addBlock(new Block(2, "11/12/2022", { amount: 6 }));
 
-console.log("Is blockchain valid " + isChainValid());
-// console.log(JSON.stringify(i_coin, null, 4));
+console.log(JSON.stringify(i_coin, null, 4));
+console.log("Is blockchain valid? " + i_coin.isChainValid());
