@@ -29,11 +29,12 @@ class Blockchain {
   }
 
   getLatestBlock() {
-    return this.chain[this.chain.lenght - 1];
+    return this.chain[this.chain.length - 1];
   }
 
   addBlock(newBlock) {
-    newBlock.previousHash = this.getLatestBlock();
+    newBlock.previousHash = this.getLatestBlock().hash;
+
     newBlock.hash = newBlock.calculateHash();
     this.chain.push(newBlock);
   }
@@ -59,4 +60,5 @@ i_coin.addBlock(new Block(1, "10/12/2022", { amount: 4 }));
 i_coin.addBlock(new Block(2, "11/12/2022", { amount: 6 }));
 
 console.log(JSON.stringify(i_coin, null, 4));
+// console.log(i_coin.getLatestBlock());
 console.log("Is blockchain valid? " + i_coin.isChainValid());
