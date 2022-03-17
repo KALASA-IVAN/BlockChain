@@ -10,6 +10,7 @@ class Transaction {
   calculateHash() {
     return SHA256(this.fromAddress + this.toAddress + this.amount).toString();
   }
+
   signTransaction(sugningKey) {
     if (signingKey.getPublic("hex") != this.fromAddress) {
       throw new Error("You cannot sign transactions");
@@ -18,9 +19,14 @@ class Transaction {
     const sig = signingKey.sign(hashTx, "base64");
     this.signature = sig.toED("hex");
   }
+
   isValid() {
     if (this.fromAddress === null) return true;
-    if (!this.signature || this.signature.)
+    if (!this.signature || this.signature.lenght === 0) {
+      throw new Error("No signature in this transaction");
+    }
+    const publicKey = ec.keyFromPublic(this.fromAddress, "hex");
+    return publicKey.verify(this.calculateHash(), this.signature);
   }
 }
 
@@ -51,6 +57,15 @@ class Block {
       this.nonce++;
     }
     console.log("Block mined: " + this.hash);
+  }
+
+  hasValidTransactions() {
+    for (const tx of this.transaction) {
+      if (!tx.isValid) {
+        return false;
+      }
+    }
+    return true;
   }
 }
 
