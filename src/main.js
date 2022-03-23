@@ -1,4 +1,4 @@
-const { Blockchain, Transaction } = require('./blockchain');
+const { Blockchain, Transaction } = require("./blockchain");
 
 let i_coin = new Blockchain();
 
