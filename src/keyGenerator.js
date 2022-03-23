@@ -8,3 +8,5 @@ const privateKey = key.getPrivate("hex");
 console.log();
 console.log("Private Key: ", privateKey);
 console.log("Public Key: ", publicKey);
+
+console.log("todia is the last day of the work in javascript")
