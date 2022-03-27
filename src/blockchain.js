@@ -80,7 +80,6 @@ class Blockchain {
   createGenesisBlock() {
     return new Block("3/14/2022", "Genesis block", "0");
   }
-  today's work is in the ethics
   getLatestBlock() {
     return this.chain[this.chain.length - 1];
   }
