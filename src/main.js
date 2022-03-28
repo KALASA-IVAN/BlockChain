@@ -1,4 +1,6 @@
 const { Blockchain, Transaction } = require("./blockchain");
+const EC = require("elliptic").ec;
+const ec = new EC("secp256k1");
 
 let i_coin = new Blockchain();
 
