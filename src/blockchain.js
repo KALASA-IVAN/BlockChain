@@ -13,13 +13,13 @@ class Transaction {
     return SHA256(this.fromAddress + this.toAddress + this.amount).toString();
   }
 
-  signTransaction(sugningKey) {
+  signTransaction(signingKey) {
     if (signingKey.getPublic("hex") != this.fromAddress) {
       throw new Error("You cannot sign transactions");
     }
     const hashTx = this.calculateHash();
     const sig = signingKey.sign(hashTx, "base64");
-    this.signature = sig.toED("hex");
+    this.signature = sig.toDER("hex");
   }
 
   isValid() {
