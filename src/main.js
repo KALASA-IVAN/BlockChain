@@ -8,7 +8,7 @@ const myKey = ec.keyFromPrivate(
 let i_coin = new Blockchain();
 const myWalletAddress = myKey.getPublic("hex");
 
-const tx1 = new Transaction(myWalletAddress, "public key goes here", 100);
+const tx1 = new Transaction(myWalletAddress, "public key goes here", 10);
 tx1.signTransaction(myKey);
 i_coin.addTransaction(tx1);
 
@@ -29,4 +29,6 @@ console.log(
 //   "\nBalance of Ivan is " + i_coin.getBalanceOfAddress("Ivans-address")
 // );
 
-console.log("Is chain valid " + i_coin.isChainValid);
+i_coin.chain[1].transaction[0].amount = 1;
+
+console.log("Is chain valid ", i_coin.isChainValid());
