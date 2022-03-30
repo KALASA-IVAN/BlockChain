@@ -12,9 +12,6 @@ const tx1 = new Transaction(myWalletAddress, "public key goes here", 10);
 tx1.signTransaction(myKey);
 i_coin.addTransaction(tx1);
 
-// i_coin.createTransaction(new Transaction("Address1", "Address2", 100));
-// i_coin.createTransaction(new Transaction("Address2", "Address1", 50));
-
 console.log("\nStarting the miner ...");
 i_coin.minePendingTransactions(myWalletAddress);
 
@@ -22,12 +19,6 @@ console.log(
   "\nBalance of Ivan is " + i_coin.getBalanceOfAddress(myWalletAddress)
 );
 
-// console.log("\nStarting the miner ...");
-// i_coin.minePendingTransactions("Ivans-address");
-
-// console.log(
-//   "\nBalance of Ivan is " + i_coin.getBalanceOfAddress("Ivans-address")
-// );
 
 i_coin.chain[1].transaction[0].amount = 1;
 
