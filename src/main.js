@@ -19,7 +19,6 @@ console.log(
   "\nBalance of Ivan is " + i_coin.getBalanceOfAddress(myWalletAddress)
 );
 
-
 i_coin.chain[1].transaction[0].amount = 1;
 
 console.log("Is chain valid ", i_coin.isChainValid());
